@@ -12,6 +12,16 @@ public class PlayerTest {
         Mockito.when(dice.roll()).thenReturn(2);
 
         Player player = new Player(dice, 2);
-        assertEquals(false, player.play());
+        assertFalse(player.play());
+    }
+
+    @Test
+    public void wins_when_dice_number_is_big () {
+
+        Dice dice = Mockito.mock(Dice.class);
+        Mockito.when(dice.roll()).thenReturn(4);
+
+        Player player = new Player(dice, 2);
+        assertTrue(player.play());
     }
 }
